@@ -5,10 +5,15 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var stylus = require('stylus');
+var livereload = require('express-livereload');
 
 var index = require('./routes/index');
 
 var app = express();
+
+if (process.env.NODE_ENV !== 'production') {
+  livereload(app, {watchDir: __dirname + '/views', exts: ['pug', 'styl']});
+}
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

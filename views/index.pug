@@ -1,8 +1,9 @@
 extends layout
 
 block content
-  div.mid
+  div.header-center
     h1 Game of Thrones - Quote Generator
-    a(onclick="fetchQuote(); return false;", href="#") New quote
+    a(class="new-quote-link", onclick="fetchQuote(); return false;", href="#") New quote
+  div.mid
     h1#quote-text
   
