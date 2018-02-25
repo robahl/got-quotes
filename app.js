@@ -11,10 +11,6 @@ var index = require('./routes/index');
 
 var app = express();
 
-if (process.env.NODE_ENV !== 'production') {
-  livereload(app, {watchDir: __dirname + '/views', exts: ['pug', 'styl']});
-}
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
@@ -22,7 +18,14 @@ app.enable('trust proxy');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger('dev'));
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(logger('combined'));
+} else {
+  app.use(logger('dev'));
+  livereload(app, {watchDir: __dirname + '/views', exts: ['pug', 'styl']});
+}
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
