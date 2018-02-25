@@ -4,7 +4,7 @@ const quotes = require('../data/quotes.js');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  res.render('index');
+  res.render('index', {title: "GoT - Quote Generator"});
 });
 
 router.get('/quote', function (req, res) {
