@@ -1,0 +1,23 @@
+body {
+  background: #373737;
+  color: #fff;
+  font: 16px "Courgette", "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+a {
+  color: #006eff;
+  text-decoration: none;
+}
+a:hover {
+  color: #0058cc;
+}
+div.mid {
+  text-align: center;
+}
+h1 {
+  color: #535353;
+  text-shadow: 1px 1px 2px #2b2b2b;
+}
+h1#quote-text {
+  font-size: 3em;
+  color: #fff;
+}

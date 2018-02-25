@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  div.mid
+    h1 Game of Thrones - Quote Generator
+    a(onclick="fetchQuote(); return false;", href="#") New quote
+    h1#quote-text
+  
