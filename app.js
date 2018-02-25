@@ -21,7 +21,16 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(stylus.middleware(path.join(__dirname, 'public')));
+app.use(stylus.middleware({
+  src: path.join(__dirname, 'views'),
+  dest: path.join(__dirname, 'public'),
+  compile: function(str, path) {
+    return stylus(str)
+    .set('filename', path)
+    .use(require('jeet')())
+    .use(require('rupture')())
+  }
+}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
