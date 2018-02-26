@@ -1,6 +1,5 @@
-html,
-body {
-  min-height: 100vh;
+html {
+  height: 100%;
 }
 * {
   box-sizing: border-box;
@@ -8,6 +7,7 @@ body {
 }
 body {
   background: #373737;
+  min-height: 100%;
   color: #fff;
   font: 16px "Courgette", "Lucida Grande", Helvetica, Arial, sans-serif;
 }
